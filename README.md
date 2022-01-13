@@ -1,6 +1,6 @@
 # template_kit
 
-A new Flutter project.
+A new Flutter template project free for everyone.
 
 ## Getting Started
 
