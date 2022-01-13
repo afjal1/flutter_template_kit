@@ -168,7 +168,7 @@ class ProductDetails extends StatelessWidget {
                       Radius.circular(8),
                     ),
                   ),
-                  hintText: 'e.g. No soy sauce please',
+                  hintText: 'e.g. Social Distancing',
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 12, vertical: 12.0),
