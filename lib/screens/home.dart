@@ -26,72 +26,70 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title:
-              Text('Yola', style: TextStyle(color: Colors.red, fontSize: 25)),
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Colors.red,
-            ),
-            onPressed: () {},
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Yola',
+            style:  TextStyle(color: Colors.red, fontSize: 25)),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.red,
           ),
-          backgroundColor: Colors.white,
-          elevation: 3,
-          actions: [
-            Icon(
-              Icons.search,
-              color: Colors.red,
-              size: 25,
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            Icon(
-              Icons.favorite,
-              color: Colors.red,
-              size: 25,
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            Icon(
-              Icons.shopping_bag,
-              color: Colors.red,
-              size: 25,
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-          ],
+          onPressed: () {},
         ),
-        body: Stack(
-          children: [
-            ListView(
-              children: [
-                BuildCarouselSwiper(
-                  itemCount: LocalList.carouselSwiperList(),
-                  carouselIndex: _carouselIndex,
-                  onIndexChanged: (val) {
-                    setState(() => _carouselIndex = val);
-                  },
-                ),
-                const SizedBox(height: Const.space25),
-                CategorySection(
-                  itemCount: LocalList.topCategoryList(),
-                ),
-                const SizedBox(height: Const.space15),
-                ScrollableSection(
-                  label: 'New Arrival',
-                  itemCount: LocalList.allProductList(),
-                ),
-              ],
-            ),
-          ],
-        ),
+        backgroundColor: Colors.white,
+        elevation: 3,
+        actions: [
+          const Icon(
+            Icons.search,
+            color: Colors.red,
+            size: 25,
+          ),
+          const SizedBox(
+            width: 12,
+          ),
+          const Icon(
+            Icons.favorite,
+            color: Colors.red,
+            size: 25,
+          ),
+          const SizedBox(
+            width: 12,
+          ),
+          const Icon(
+            Icons.shopping_bag,
+            color: Colors.red,
+            size: 25,
+          ),
+          const SizedBox(
+            width: 12,
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          ListView(
+            children: [
+              BuildCarouselSwiper(
+                itemCount: LocalList.carouselSwiperList(),
+                carouselIndex: _carouselIndex,
+                onIndexChanged: (val) {
+                  setState(() => _carouselIndex = val);
+                },
+              ),
+              const SizedBox(height: Const.space25),
+              CategorySection(
+                itemCount: LocalList.topCategoryList(),
+              ),
+              const SizedBox(height: Const.space15),
+              ScrollableSection(
+                label: 'New Arrival',
+                itemCount: LocalList.allProductList(),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -22,7 +22,9 @@ class ScrollableSection extends StatelessWidget {
       children: [
         BuildLabelSection(
           label: label,
-          onViewAllTap: () {},
+          onViewAllTap: () {
+            
+          },
         ),
         const SizedBox(height: Const.space15),
         Container(

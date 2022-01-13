@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:template_kit/help/constants.dart';
 import 'package:template_kit/model/product.dart';
+import 'package:template_kit/screens/product_info.dart';
 import 'package:template_kit/widgets/custom_text.dart';
 
 import 'add_to_cart.dart';
@@ -18,7 +20,11 @@ class BuildProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.to(() => ProductDetails(
+              product: product,
+            ));
+      },
       borderRadius: BorderRadius.circular(8),
       child: Container(
         width: 150,
