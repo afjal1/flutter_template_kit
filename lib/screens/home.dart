@@ -5,6 +5,8 @@ import 'package:template_kit/widgets/carousel.dart';
 import 'package:template_kit/widgets/category_section.dart';
 import 'package:template_kit/widgets/scrollable_section.dart';
 
+import 'drawer.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -27,42 +29,37 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MenuScreen(),
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.red),
         title: const Text('Yola',
-            style:  TextStyle(color: Colors.red, fontSize: 25)),
+            style: TextStyle(color: Colors.red, fontSize: 25)),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.menu,
-            color: Colors.red,
-          ),
-          onPressed: () {},
-        ),
         backgroundColor: Colors.white,
         elevation: 3,
-        actions:const [
-           Icon(
+        actions: const [
+          Icon(
             Icons.search,
             color: Colors.red,
             size: 25,
           ),
-           SizedBox(
+          SizedBox(
             width: 12,
           ),
-           Icon(
+          Icon(
             Icons.favorite,
             color: Colors.red,
             size: 25,
           ),
-           SizedBox(
+          SizedBox(
             width: 12,
           ),
-           Icon(
+          Icon(
             Icons.shopping_bag,
             color: Colors.red,
             size: 25,
           ),
-           SizedBox(
+          SizedBox(
             width: 12,
           ),
         ],
