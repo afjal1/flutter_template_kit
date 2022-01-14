@@ -19,6 +19,11 @@ OnBoarding Screen
 Drawer
 ![Simulator Screen Shot - iPhone 13 Pro Max - 2022-01-14 at 15 05 14](https://user-images.githubusercontent.com/52181725/149493323-6cc46129-e4d0-4c25-957b-544e8fd284f6.png)
 
+Logout Dialog
+
+![Simulator Screen Shot - iPhone 13 Pro Max - 2022-01-14 at 15 08 18](https://user-images.githubusercontent.com/52181725/149493615-47c2cb12-fa79-4cbd-afcc-3218d59d0d6a.png)
+
+
 
 
 
