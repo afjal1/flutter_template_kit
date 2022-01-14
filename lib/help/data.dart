@@ -55,23 +55,28 @@ class LocalList {
         ),
       ];
 
+   int index1 = 2;
+   void setIndex(int index) {
+    index1 = index;
+  }
+
   static List<BottomNavigationBarItem> bottomNavigationList(
           BuildContext context) =>
       [
-        BottomNavigationBarItem(
-          icon: const Icon(FeatherIcons.home),
+        const BottomNavigationBarItem(
+          icon: Icon(FeatherIcons.home),
           label: 'Home',
         ),
-        BottomNavigationBarItem(
-          icon: const Icon(FeatherIcons.shoppingCart),
+        const BottomNavigationBarItem(
+          icon: Icon(FeatherIcons.shoppingCart),
           label: 'Cart',
         ),
-        BottomNavigationBarItem(
-          icon: const Icon(FeatherIcons.bell),
+        const BottomNavigationBarItem(
+          icon: Icon(FeatherIcons.bell),
           label: 'Notification',
         ),
-        BottomNavigationBarItem(
-          icon: const Icon(FeatherIcons.user),
+        const BottomNavigationBarItem(
+          icon: Icon(FeatherIcons.user),
           label: 'Profile',
         ),
       ];

@@ -40,29 +40,29 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         backgroundColor: Colors.white,
         elevation: 3,
-        actions: [
-          const Icon(
+        actions:const [
+           Icon(
             Icons.search,
             color: Colors.red,
             size: 25,
           ),
-          const SizedBox(
+           SizedBox(
             width: 12,
           ),
-          const Icon(
+           Icon(
             Icons.favorite,
             color: Colors.red,
             size: 25,
           ),
-          const SizedBox(
+           SizedBox(
             width: 12,
           ),
-          const Icon(
+           Icon(
             Icons.shopping_bag,
             color: Colors.red,
             size: 25,
           ),
-          const SizedBox(
+           SizedBox(
             width: 12,
           ),
         ],
