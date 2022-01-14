@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:template_kit/help/constants.dart';
 import 'package:template_kit/model/category.dart';
 import 'package:template_kit/model/favorite.dart';
@@ -55,10 +56,7 @@ class LocalList {
         ),
       ];
 
-   int index1 = 2;
-   void setIndex(int index) {
-    index1 = index;
-  }
+ 
 
   static List<BottomNavigationBarItem> bottomNavigationList(
           BuildContext context) =>

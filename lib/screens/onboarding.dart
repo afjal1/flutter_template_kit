@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:template_kit/controller/onBoardController.dart';
 import 'package:template_kit/help/data.dart';
 import 'package:template_kit/model/onBoard.dart';
 import 'package:template_kit/screens/home.dart';
+
+final OnBoardController onBoardController = Get.put(OnBoardController());
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -27,7 +30,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               TextButton(
                 onPressed: () {
                   Get.to(() => const HomeScreen());
-                  //         Navigator.of(context).pushReplacementNamed(RouteHelper.login, arguments: LoginScreen());
                 },
                 // ignore: prefer_const_constructors
                 child: const Text(
@@ -42,19 +44,22 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
           Expanded(
             child: PageView.builder(
-              itemCount: 3,
-              controller: _pageController,
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.all(12),
-                  child: OnBoardingWidget(
-                    onBoardingModel: LocalList.onBoardingList(context)[index],
-                  ),
-                );
-              },
-              //    onPageChanged: (index) => onBoarding.setSelectIndex(index),
-            ),
+                itemCount: 3,
+                controller: _pageController,
+                physics: BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.all(12),
+                    child: OnBoardingWidget(
+                      onBoardingModel: LocalList.onBoardingList(context)[index],
+                    ),
+                  );
+                },
+                onPageChanged: (index) {
+                  setState(() {
+                    onBoardController.setIndex(index);
+                  });
+                }),
           ),
           Padding(
             padding: EdgeInsets.all(20),
@@ -69,14 +74,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             child: Stack(children: [
               Center(
                 child: SizedBox(
-                  height: 50,
-                  width: 50,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        Theme.of(context).primaryColor),
-                    value: (3) / LocalList.onBoardingList(context).length,
-                  ),
-                ),
+                    height: 50,
+                    width: 50,
+                    child: Obx(
+                      () => CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                        value: (onBoardController.index!.obs + 1) /
+                            LocalList.onBoardingList(context).length,
+                      ),
+                    )),
               ),
               Align(
                 alignment: Alignment.center,
@@ -89,10 +95,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     width: 40,
                     margin: EdgeInsets.only(top: 5),
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Theme.of(context).primaryColor),
+                        shape: BoxShape.circle, color: Colors.red),
                     child: Icon(
-                      Icons.check,
+                      onBoardController.index!.obs + 1 ==
+                              LocalList.onBoardingList(context).length
+                          ? Icons.check
+                          : Icons.arrow_forward,
                       color: Colors.white,
                       size: 30,
                     ),
@@ -116,8 +124,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           height: 10,
           margin: EdgeInsets.only(right: 5),
           decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(50)),
+              color: Colors.red, borderRadius: BorderRadius.circular(50)),
         ),
       );
     }
@@ -143,8 +150,8 @@ class OnBoardingWidget extends StatelessWidget {
         child: Text(
           onBoardingModel.title!,
           style: TextStyle(
-            fontSize: 20,
-            color: Theme.of(context).primaryColor,
+            fontSize: 22,
+            color: Colors.red,
           ),
           textAlign: TextAlign.center,
         ),
@@ -154,7 +161,7 @@ class OnBoardingWidget extends StatelessWidget {
         child: Text(
           onBoardingModel.subtitle!,
           style: const TextStyle(
-            fontSize: 20,
+            fontSize: 18,
           ),
           textAlign: TextAlign.center,
         ),
