@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SignOutConfirmationDialog extends StatelessWidget {
-  @override
+  const SignOutConfirmationDialog({Key? key}) : super(key: key);
+
+  @immutable
   Widget build(BuildContext context) {
     return Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
